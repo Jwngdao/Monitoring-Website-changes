@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title> 
+        National Informatics Centre, Agartala
+    
+    </title>
+  </head>
+  <body>
+    <h1>Website Monitoring Tool</h1>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">NIC</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" href="">Home</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link active" href="monitor">Start monitoring</a>
+              </li>
+
+
+            </ul>
+
+          </div>
+        </div>
+
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/static/Today's Changes.txt">View Today's Changes</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/static/monitoringstatus.txt">View All Changes</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        
+ </nav>
+ 
+ 
+</body>
+
+
+<style>
+    
+    div {
+      
+      #padding-bottom:200px
+      #background-color: #1c87c9;
+      color: #000;
+      #text-align: right;
+    }
+    p {
+      #padding-top:180px;
+      padding-bottom:200px;
+      
+      #padding-left:500px;
+      
+      #background-color: #1c87c9;
+      color: #000;
+      
+      
+      -moz-animation: marquee 3s linear infinite;
+      -webkit-animation: marquee 3s linear infinite;
+      animation: marquee 3s linear infinite;
+    }
+    @-moz-keyframes marquee {
+      0% {
+        transform: translate(0, 0);
+      }
+      100% {
+        transform: translate(0, -100%);
+      }
+    }
+    @-webkit-keyframes marquee {
+      0% {
+        transform: translate(0, 0);
+      }
+      100% {
+        transform: translate(0, -100%);
+      }
+    }
+    @keyframes marquee {
+      0% {
+        -moz-transform: translate(0, 0);
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+      }
+      100% {
+        -moz-transform: translate(0, -100%);
+        -webkit-transform: translate(0, -100%);
+        transform: translate(0, -100%);
+      }
+    }
+  
+</style>
+
+
+<div style = "position:absolute;left:0px; top:450px;">
+    <p>
+      {% block body %} {% endblock body%}
+    </p>
+</div>
+
+
+<div>
+
+  <div class="inline">
+
+    {% if rowstat0 == 0 %}
+        <button style="background-color:green">GDP</button>
+    {% else %}
+        <button style="background-color:red">GDP</button>
+    {% endif %}
+
+    {% if rowstat1 == 1 %}   
+        <button style="background-color:green">SVMMohanpur</button>
+    {% else %}
+        <button style="background-color:red">SVMMohanpur</button>
+    {% endif %}
+
+    {% if rowstat2 == 2 %} 
+        <button style="background-color:green">THC</button>
+    {% else %}
+        <button style="background-color:red">THC</button>
+    {% endif %}
+
+    {% if rowstat3 == 3 %} 
+        <button style="background-color:green">DBTripura</button>
+    {% else %}
+        <button style="background-color:red">DBTripura</button>
+    {% endif %}
+
+    {% if rowstat4 == 4 %}
+        <button style="background-color:green">TCW</button>
+    {% else %}
+        <button style="background-color:red">TCW</button>
+    {% endif %}
+
+    {% if rowstat5 == 5 %}
+        <button style="background-color:green">KVKNorthTripura</button>
+    {% else %}
+        <button style="background-color:red">KVKNorthTripura</button>
+    {% endif %}
+
+    {% if rowstat6 == 6 %}
+        <button style="background-color:green">NSMahavidyalaya</button>
+    {% else %}
+        <button style="background-color:red">NSMahavidyalaya</button>
+    {% endif %}
+
+    {% if rowstat7 == 7 %}   
+        <button style="background-color:green">WPTripura</button>
+    {% else %}
+        <button style="background-color:red">WPTripura</button>
+    {% endif %}
+    
+    {% if rowstat8 == 8 %} 
+        <button style="background-color:green">TbJee</button>
+    {% else %}
+        <button style="background-color:red">TbJee</button>
+    {% endif %}
+
+    {% if rowstat9 == 9 %} 
+        <button style="background-color:green">MSmedi</button>
+    {% else %}
+        <button style="background-color:red">MSmedi</button>
+    {% endif %}
+
+    {% if rowstat10 == 10 %}
+        <button style="background-color:green">WARB</button>
+    {% else %}
+        <button style="background-color:red">WARB</button>
+    {% endif %}
+
+    {% if rowstat11 == 11 %}
+        <button style="background-color:green">TMC</button>
+    {% else %}
+        <button style="background-color:red">TMC</button>
+    {% endif %}
+
+    {% if rowstat12 == 12 %}
+      <button style="background-color:green">CSTripura</button>
+    {% else %}
+      <button style="background-color:red">CSTripura</button>
+    {% endif %}
+
+    {% if rowstat13 == 13 %}
+      <button style="background-color:green">Assembly</button>
+    {% else %}
+      <button style="background-color:red">Assembly</button>
+    {% endif %}
+
+    {% if rowstat14 == 14 %}
+        <button style="background-color:green">COFCAU</button>
+    {% else %}
+        <button style="background-color:red">COFCAU</button>
+    {% endif %}
+
+    {% if rowstat15 == 15 %}
+        <button style="background-color:green">RamthakurCollege</button>
+    {% else %}
+        <button style="background-color:red">RamthakurCollege</button>
+    {% endif %}
+
+    {% if rowstat16 == 16 %}
+      <button style="background-color:green">ICAR</button>
+    {% else %}
+      <button style="background-color:red">ICAR</button>
+    {% endif %}
+
+    {% if rowstat17 == 17 %}
+      <button style="background-color:green">TSCBank</button>
+    {% else %}
+      <button style="background-color:red">TSCBank</button>
+    {% endif %}
+
+    {% if rowstat18 == 18 %}
+        <button style="background-color:green">WomensCollege</button>
+    {% else %}
+        <button style="background-color:red">WomensCollege</button>
+    {% endif %}
+
+    {% if rowstat19 == 19 %}
+        <button style="background-color:green">ITI</button>
+    {% else %}
+        <button style="background-color:red">ITI</button>
+    {% endif %}
+
+    {% if rowstat20 == 20 %}
+      <button style="background-color:green">ScOBCrm</button>
+    {% else %}
+      <button style="background-color:red">ScOBCrm</button>
+    {% endif %}
+
+    {% if rowstat21 == 21 %}
+      <button style="background-color:green">TPSC.nic</button>
+    {% else %}
+      <button style="background-color:red">TPSC.nic</button>
+    {% endif %}
+
+    {% if rowstat22 == 22 %}
+        <button style="background-color:green">TPSC.gov</button>
+    {% else %}
+        <button style="background-color:red">TPSC.gov</button>
+    {% endif %}
+
+    {% if rowstat23 == 23 %}
+      <a style="background-color:green; font-size:150%;">TSU</a>
+    {% else %}
+      <a href="resettogreen" style="background-color:red; font-size:150%;">TSU</a>
+    {% endif %}
+
+    {% if rowstat24 == 24 %}
+      <button style="background-color:green">COVID'19</button>
+    {% else %}
+      <button id="hello" style="background-color:red" onclick="clicked()" >COVID'19</button>
+    
+    {% endif %}
+
+
+
+    {% if rowstat24 == 24 %}
+      <a style="background-color:green; font-size:150%;">COVID'19</a>
+    {% else %}
+      <a href="two4" style="background-color:red; font-size:150%">COVID'19</a>
+    {% endif %}
+
+    
+    {% if rowstat25 == 25 %}
+      <a style="background-color:green; font-size:150%;">BBC News</a>
+    {% else %}
+      <a href="two5" style="background-color:red; font-size:150%">BBC News</a>
+    {% endif %}
+
+    
+    </div>
+  </div>
+
+</html>
